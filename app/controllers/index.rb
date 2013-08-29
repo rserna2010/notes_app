@@ -5,7 +5,7 @@ get '/' do
 end
 
 
-post '/note' do 
+post '/notes' do 
   new_note = Note.create({
     title:    params[:title],
     content:  params[:content]
@@ -14,18 +14,23 @@ post '/note' do
   redirect to '/'
 end 
 
-get '/note/:title' do 
+get '/notes/:title' do 
   @note  = Note.where(title: params[:title]).first
 
   erb :note_page
 end
 
-get '/edit/:title' do
+get '/notes/:title/edit' do
   @note  = Note.where(title: params[:title]).first
 
   erb :edit
 end
 
-post '/note:update' do
+put '/notes/:id' do 
   
+
+end
+
+delete '/notes/:id' do 
+
 end

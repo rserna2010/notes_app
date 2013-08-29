@@ -3,7 +3,7 @@
   <p><strong>Would you like to save a thought?</strong></p>
 
 
-    <form action="/note" method='post'>
+    <form action="/notes" method='post'>
     <table id="login_form">
     <tr>
     <td>Title:</td>
@@ -20,7 +20,7 @@
     
     <ol>
     <% @notes_list.reverse.each do |note| %>
-    <li><a href="/note/<%= note[0] %>"><%= note[0] %></a><br></li>
+    <li><a href="/notes/<%= note.id %>/edit"><%= note.title %></a><br></li>
     <% end %>
     </ol>
 </div>
