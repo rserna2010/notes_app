@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Welcome to Evernote, Jr!</h1>
+  <p><strong>Would you like to save a thought?</strong></p>
+
+
+    <form action="/note" method='post'>
+    <table id="login_form">
+    <tr>
+    <td>Title:</td>
+    <td><input type="text" name="title"></td/></tr>
+    <tr>
+    <td>Content:</td>
+    <td><textarea id="paragraph" rows="5" cols="40" name="content"></textarea></td></tr>
+    <tr>
+    </table><br>
+    <input type="Submit" value="Save Note!">
+    </form>  
+
+  <p><strong> No?! Well then here are the rest of your notes </strong></p>
+    
+    <ol>
+    <% @notes_list.reverse.each do |note| %>
+    <li><a href="/note/<%= note[0] %>"><%= note[0] %></a><br></li>
+    <% end %>
+    </ol>
+</div>
