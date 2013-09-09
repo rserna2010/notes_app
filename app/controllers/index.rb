@@ -1,6 +1,6 @@
 get '/' do
   # Look in app/views/index.erb
-  @notes_list = Note.display_notes
+  display_notes
   erb :index
 end
 
@@ -14,23 +14,38 @@ post '/notes' do
   redirect to '/'
 end 
 
-get '/notes/:title' do 
-  @note  = Note.where(title: params[:title]).first
+get '/notes/:id' do 
+  @note  = Note.where(id: params[:id]).first
 
   erb :note_page
 end
 
-get '/notes/:title/edit' do
-  @note  = Note.where(title: params[:title]).first
+get '/notes/:id/edit' do
+  @note  = Note.where(id: params[:id]).first
 
   erb :edit
 end
 
 put '/notes/:id' do 
-  
-
+  @note = Note.where(id: params[:id]).first
+  @note.title = params[:title]
+  @note.content = params[:content]
+  @note.save!
+  redirect to '/'
 end
 
-delete '/notes/:id' do 
+get '/notes/:id/delete' do 
+  @note = Note.where(id: params[:id]).first
 
+  erb :delete
+end
+
+
+
+
+delete '/notes/:id/delete' do 
+  @note = Note.where(id: params[:id]).first
+  @note.destroy
+
+  redirect to '/'
 end

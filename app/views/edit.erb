@@ -3,7 +3,7 @@
   <p><strong></strong></p>
 
 
-    <form action="/notes/note.id" method='post'>
+    <form action="/notes/<%= @note.id %>" method='post'>
     <input type="hidden" name="_method" value="put">
     <table id="login_form">
     <tr>
@@ -16,3 +16,6 @@
     </table><br>
     <input type="Submit" value="Save Note!">
     </form>  
+
+    <br>
+    <a href="/notes/<%= @note.id %>/delete">Delete</a>

@@ -19,8 +19,8 @@
   <p><strong> No?! Well then here are the rest of your notes </strong></p>
     
     <ol>
-    <% @notes_list.reverse.each do |note| %>
-    <li><a href="/notes/<%= note.id %>/edit"><%= note.title %></a><br></li>
+    <% @all_notes.reverse.each do |note| %>
+    <li><a href="/notes/<%= note.id %>"><%= note.title %></a><br></li>
     <% end %>
     </ol>
 </div>
